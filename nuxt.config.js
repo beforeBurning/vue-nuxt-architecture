@@ -50,5 +50,12 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/]
+  },
+
+  proxy: {
+    '/api': {
+      target: 'https://www.baidu.com',
+      pathRewrite: { '^/api': '' }
+    }
   }
 }
