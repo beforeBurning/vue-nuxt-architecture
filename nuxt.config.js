@@ -22,12 +22,16 @@ export default {
     // 公共less文件
     '@/assets/less/global.less',
     // 清楚默认样式
-    'normalize.css'
+    'normalize.css',
+    // 字体文件
+    '@/assets/fonts/iconfont.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    // ssr: Boolean (默认为 true) 若是值为 false，该文件只会在客户端被打包引入
+    { src: '@/assets/fonts/iconfont.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

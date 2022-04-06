@@ -5,6 +5,7 @@
       to login
     </nuxt-link>
     <p>111</p>
+    <i class="iconfont iconpaixu" />
   </div>
 </template>
 
