@@ -20,7 +20,9 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     // 公共less文件
-    '@/assets/less/global.less'
+    '@/assets/less/global.less',
+    // 清楚默认样式
+    'normalize.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

@@ -1,7 +1,7 @@
 <template>
   <div>
     <nuxt-link to="/">
-      index
+      to index
     </nuxt-link>
   </div>
 </template>
@@ -21,3 +21,6 @@ export default {
   }
 }
 </script>
+
+<style scoped lang='less'>
+</style>

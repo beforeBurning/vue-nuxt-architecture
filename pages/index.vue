@@ -2,8 +2,9 @@
   <div>
     {{ token }}
     <nuxt-link to="/login">
-      login
+      to login
     </nuxt-link>
+    <p>111</p>
   </div>
 </template>
 
@@ -18,3 +19,9 @@ export default {
   }
 }
 </script>
+
+<style scoped lang='less'>
+p {
+  color: red;
+}
+</style>
