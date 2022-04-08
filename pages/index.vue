@@ -23,6 +23,6 @@ export default {
 
 <style scoped lang='less'>
 p {
-  color: red;
+  color: @color-primary;
 }
 </style>

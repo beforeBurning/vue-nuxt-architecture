@@ -1,21 +1,105 @@
-// @font-face {
-//   font-family: "iconfont";
-//   src: url('../fonts/iconfont.eot');
-//   /* IE9*/
-//   src: url('../fonts/iconfont.eot#iefix') format('embedded-opentype'),
-//     /* IE6-IE8 */
-//     url('../fonts/iconfont.woff') format('woff'),
-//     /* chrome, firefox */
-//     url('../fonts/iconfont.woff2') format('woff2'),
-//     /* chrome, firefox */
-//     url('../fonts/iconfont.ttf') format('truetype'),
-//     /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-//     url('../assets/fonts/iconfont.svg#iconfont') format('svg');
-//   /* iOS 4.1- */
-// }
-
-
+.flex {
+  display: flex;
+}
 
 p {
   margin: 0;
 }
+
+// input placeholder
+.placeholder(@value: #999999) {
+  ::-webkit-input-placeholder {
+    color: @value;
+  }
+
+  :-moz-placeholder {
+    color: @value;
+  }
+
+  ::-moz-placeholder {
+    color: @value;
+  }
+
+  :-ms-input-placeholder {
+    color: @value;
+  }
+}
+
+// 移除隐藏
+.ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ellipsisMore(@value: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @value;
+}
+
+// 移动端0.5像素分割线 向上
+.lineTop(@value: #E8E8E8) {
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    left: -50%;
+    top: 0;
+    width: 200%;
+    pointer-events: none;
+    height: 1px;
+    .background(@value);
+    .scale(0.5);
+  }
+}
+
+// 移动端0.5像素分割线 向下
+.lineBottom(@value: #E8E8E8) {
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    left: -50%;
+    bottom: 0;
+    width: 200%;
+    pointer-events: none;
+    height: 1px;
+    .background(@value);
+    .scale(0.5);
+  }
+}
+
+/* 颜色变量 */
+
+/* 行为相关颜色 */
+@color-primary: #007aff;
+@color-success: #4cd964;
+@color-warning: #f0ad4e;
+@color-error: #dd524d;
+
+/* 文字基本颜色 */
+@text-color: #333; //基本色
+@text-color-inverse: #fff; //反色
+@text-color-grey: #999; //辅助灰色，如加载更多的提示信息
+@text-color-placeholder: #808080;
+@text-color-disable: #c0c0c0;
+
+/* 背景颜色 */
+@bg-color: #ffffff;
+@bg-color-grey: #f8f8f8;
+@bg-color-hover: #f1f1f1; //点击状态颜色
+@bg-color-mask: rgba(0, 0, 0, 0.4); //遮罩颜色
+
+/* 边框颜色 */
+@border-color: #c8c7cc;
+
+/* 透明度 */
+@opacity-disabled: 0.3; // 组件禁用态的透明度
+
+/* 文章场景相关 */
+@color-title: #2C405A; // 文章标题颜色
+@color-subtitle: #555555; // 二级标题颜色
+@color-paragraph: #3F536E; // 文章段落颜色

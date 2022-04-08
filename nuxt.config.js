@@ -58,7 +58,10 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
-    less: './assets/less/global.less'
+    // less: './assets/less/global.less',
+    styleResources: {
+      less: './assets/less/global.less'
+    }
   },
 
   proxy: {
