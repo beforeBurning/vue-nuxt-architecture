@@ -1,28 +1,13 @@
 <template>
-  <div>
-    {{ token }}
-    <nuxt-link to="/login">
-      to login
-    </nuxt-link>
-    <p>111</p>
-    <i class="iconfont iconpaixu" />
-  </div>
+  <Index />
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import Index from './components/Index/index'
 export default {
   name: 'IndexPage',
-  computed: {
-    ...mapState({
-      token: state => state.token
-    })
+  components: {
+    Index
   }
 }
 </script>
-
-<style scoped lang='less'>
-p {
-  color: @color-primary;
-}
-</style>

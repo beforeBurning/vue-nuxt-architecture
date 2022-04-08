@@ -7,7 +7,7 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
@@ -27,9 +27,15 @@ export default {
     '@/assets/fonts/iconfont.css'
   ],
 
+  // 路由中间件
+  router: {
+    middleware: 'auth'
+  },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/element-ui',
+    '@/plugins/route',
     // ssr: Boolean (默认为 true) 若是值为 false，该文件只会在客户端被打包引入
     { src: '@/assets/fonts/iconfont.js', ssr: false }
   ],
@@ -70,4 +76,5 @@ export default {
       pathRewrite: { '^/api': '' }
     }
   }
+
 }

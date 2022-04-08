@@ -1,4 +1,6 @@
-export default function ({ userAgent, req }) {
-  if (process.server && !req) { return }
-  userAgent = process.server ? req.headers['user-agent'] : navigator.userAgent
+// 路由中间件
+export default (context) => {
+  context.userAgent = process.server
+    ? context.req.headers['user-agent']
+    : navigator.userAgent
 }

@@ -1,26 +1,13 @@
 <template>
-  <div>
-    <nuxt-link to="/">
-      to index
-    </nuxt-link>
-  </div>
+  <Login />
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
-
+import Login from './components/Login/index'
 export default {
   name: 'LoginPage',
-  mounted () {
-    this.SET_TOKEN('xxxx')
-  },
-  methods: {
-    ...mapMutations([
-      'SET_TOKEN'
-    ])
+  components: {
+    Login
   }
 }
 </script>
-
-<style scoped lang='less'>
-</style>
