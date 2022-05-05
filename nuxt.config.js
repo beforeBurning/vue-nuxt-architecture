@@ -8,7 +8,8 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: '全局 Meta description' },
+      { hid: 'keywords', name: 'keywords', content: '全局 Meta keywords' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
@@ -58,22 +59,41 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/'
+    baseURL: '/',
+    // 表示开启代理
+    proxy: true,
+    // 表示跨域请求时是否需要使用凭证
+    credentials: true
+  },
+
+  proxy: {
+    '/api': {
+      // 目标接口域名
+      target: 'http://www.baidu.com/api',
+      // 表示是否跨域
+      changeOrigin: true,
+      pathRewrite: {
+        // 打包时把 /api 替换成 ''
+        '^/api': ''
+      }
+    }
+  },
+
+  // js 自动创建文件，并引用
+  hooks: {
+    'vue-renderer:ssr:context' (context) {
+      const routePath = JSON.stringify(context.nuxt.routePath)
+      context.nuxt = { serverRendered: true, routePath }
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
-    // less: './assets/less/global.less',
+    // css 自动创建文件，并引用
+    extractCSS: { allChunks: true },
     styleResources: {
       less: './assets/less/global.less'
-    }
-  },
-
-  proxy: {
-    '/api': {
-      target: 'https://www.baidu.com',
-      pathRewrite: { '^/api': '' }
     }
   }
 

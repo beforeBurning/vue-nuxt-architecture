@@ -1,16 +1,45 @@
 {
-  "editor.formatOnSave": true, // 保存时格式化
+  // 保存时格式化
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true // 保存时执行eslint修复
+    // 保存时执行eslint修复
+    "source.fixAll.eslint": true
   },
-  "vetur.format.defaultFormatter.js": "prettier-eslint", // 使用eslint修复vue文件的script部分
-  "eslint.alwaysShowStatus": true, // 右下角展示ESLint状态，方便查看，可以没有。
-  "eslint.validate": [ // 让eslint对javascript和vue执行校验
+  // 右下角展示ESLint状态，方便查看，可以没有。
+  "eslint.alwaysShowStatus": true,
+  // 让eslint对javascript和vue执行校验
+  "eslint.validate": [
     "javascript",
     "vue",
   ],
-  "vetur.format.defaultFormatter.html": "none", // 关闭vetur对vue中template的格式化，不关会导致prettier格式化生效，进而导致冲突
-  "javascript.format.enable": false, // 禁用默认javascript格式化程序，以使eslint有效，不关会冲突
+  // 禁用默认javascript格式化程序，以使eslint有效，不关会冲突
+  "javascript.format.enable": false,
+  // 关闭vetur对vue中template的格式化，不关会导致prettier格式化生效，进而导致冲突
+  "vetur.format.defaultFormatter.html": "none",
+  // 使用eslint修复vue文件的script部分
+  "vetur.format.defaultFormatter.js": "prettier-eslint",
   "vetur.format.options.useTabs": false,
-  "vue3snippets.enable-compile-vue-file-on-did-save-code": false, // 禁用vetur 的tab缩进
+  // 禁用vetur 的tab缩进
+  "vue3snippets.enable-compile-vue-file-on-did-save-code": false,
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      // - auto: 仅在超出行长度时才对属性进行换行
+      // - force: 对除第一个属性外的其他每个属性进行换行
+      // - force-aligned: 对除第一个属性外的其他每个属性进行换行，并保持对齐
+      // - force-expand-multiline: 对每个属性进行换行
+      // - aligned-multiple: 当超出折行长度时，将属性进行垂直对齐
+      // - force-expand-multiline：属性折行对齐方式
+      "wrap_attributes": "auto",
+      // 设置一行多少字符换行
+      "wrap_line_length": 1200,
+      // 是否在每行末尾添加分号
+      "semi": false,
+      // 使用单引号
+      "singleQuote": true,
+    },
+  },
+  // js部分是否有初始缩进
+  "vetur.format.scriptInitialIndent": true,
+  // style部分是否有初始缩进
+  "vetur.format.styleInitialIndent": true,
 }
